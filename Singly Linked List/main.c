@@ -191,9 +191,3 @@ NODE* generateRandomList(NODE* head,int no_of_nodes)
     }
     return head;
 }
-
-void menu()
-{
-
-    printf("\nEnter your choice :- ");
-}
