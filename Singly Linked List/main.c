@@ -175,6 +175,10 @@ void run()
     */
     head=generateRandomList(head,100);
     display_list(head);
+
+    head=delete_begin(head);
+    head=delete_end(head);
+    display_list(head);
 }
 
 NODE* generateRandomList(NODE* head,int no_of_nodes)
