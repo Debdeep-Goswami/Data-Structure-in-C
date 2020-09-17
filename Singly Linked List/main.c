@@ -1,8 +1,6 @@
 
 /**********************************************
-
 	Singly Linked List
-
 ***********************************************/
 
 #include <stdio.h>
@@ -21,21 +19,21 @@ typedef struct node
 
 /************************ Used Functions *****************/
 
-_________________________________________Insert Functions_________
+//________________________________Insert Functions_________
 
 NODE* insert_begin(NODE *head,int data);
 
 NODE* insert_end(NODE *head,int data);
 
 NODE * insert_after(NODE* head, int after, int data);
-___________________________________________________________________
+//_________________________________________________________
 
-__________________________________________Delete Functions_________
+//________________________________Delete Functions_________
 
 NODE* delete_begin(NODE * head);
 
 NODE* delete_end(NODE * head);
-____________________________________________________________________
+//_________________________________________________________
 
 void display_list(NODE *head);
 
@@ -155,34 +153,24 @@ void run()
 {
     NODE *head=NULL;
     /*
-
     NODE *n1=(NODE*)malloc(sizeof(NODE));
     n1->data=50;
     n1->link=NULL;
-
     head=n1;
-
     head=insert_begin(head,40);
     head=insert_begin(head,30);
     head=insert_begin(head,20);
     head=insert_begin(head,10);
-
     display_list(head);
-
     head=insert_end(head,60);
     head=insert_end(head,70);
     head=insert_end(head,80);
     head=insert_end(head,90);
     head=insert_end(head,100);
-
     display_list(head);
-
     head=delete_begin(head);
-
     display_list(head);
-
     head=delete_end(head);
-
     display_list(head);
     */
     head=generateRandomList(head,100);
