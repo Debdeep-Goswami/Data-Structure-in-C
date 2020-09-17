@@ -22,6 +22,7 @@ typedef struct node
 /************************ Used Functions *****************/
 
 _________________________________________Insert Functions_________
+
 NODE* insert_begin(NODE *head,int data);
 
 NODE* insert_end(NODE *head,int data);
@@ -30,6 +31,7 @@ NODE * insert_after(NODE* head, int after, int data);
 ___________________________________________________________________
 
 __________________________________________Delete Functions_________
+
 NODE* delete_begin(NODE * head);
 
 NODE* delete_end(NODE * head);
@@ -86,8 +88,6 @@ NODE* insert_end(NODE *head,int data)
 NODE * insert_after(NODE* head, int after, int data)
 {
     NODE *temp=head;
-    int flag=0;
-
     NODE *newNode=(NODE*)malloc(sizeof(NODE));
     newNode->data=data;
 
@@ -97,7 +97,6 @@ NODE * insert_after(NODE* head, int after, int data)
         {
             newNode->link=temp->link;
             temp->link=newNode;
-            flag=1;
         }
         temp=temp->link;
     }
