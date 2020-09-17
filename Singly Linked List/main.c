@@ -191,3 +191,17 @@ NODE* generateRandomList(NODE* head,int no_of_nodes)
     }
     return head;
 }
+
+void menu()
+{
+    printf("\nEnter your choice :- ");
+    printf("\nTo Insert at the Begining\t = 1");
+    printf("\nTo Insert at the end\t\t = 2");
+    printf("\nTo Delete from the Begining\t = 3");
+    printf("\nTo Delete from the end = 4");
+    printf("\nTo Display the list\t\t = 5");
+    printf("\nTo Generate Random List\t\t = 6");
+    printf("\nTo Exit\t\t\t =0");
+    printf("\n");
+    printf("\n");
+}
