@@ -29,9 +29,11 @@ NODE* insert_end(NODE *head,int data);
 NODE * insert_after(NODE* head, int after, int data);
 ___________________________________________________________________
 
+__________________________________________Delete Functions_________
 NODE* delete_begin(NODE * head);
 
 NODE* delete_end(NODE * head);
+____________________________________________________________________
 
 void display_list(NODE *head);
 
