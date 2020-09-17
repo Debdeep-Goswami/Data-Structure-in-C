@@ -21,13 +21,13 @@ typedef struct node
 
 /************************ Used Functions *****************/
 
-
+_________________________________________Insert Functions_________
 NODE* insert_begin(NODE *head,int data);
 
 NODE* insert_end(NODE *head,int data);
 
 NODE * insert_after(NODE* head, int after, int data);
-
+___________________________________________________________________
 
 NODE* delete_begin(NODE * head);
 
