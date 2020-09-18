@@ -53,9 +53,10 @@ void run()
     printf("\nWelcome to Stack operation program using array\n");
     printf("\nEnter the maximum size of the stack = ");
     scanf("%d",&Stack_Size);
-    choice=menu();
+
     while(choice!=0)
     {
+        choice=menu();
         switch(choice)
         {
         case 0:
@@ -64,17 +65,20 @@ void run()
         case 1:
             printf("\nEnter the data = ");
             scanf("%d",&data);
-            //push(data);
+            push(data);
             break;
 
         case 2:
-            //data=pop();
+            data=pop();
             printf("\nItem popped = %d\n",data);
             break;
 
         case 3:
-            //data=showTop();
-            printf("\nItem at the top is = %d\n",data);
+            data=showTop();
+            if(data==-999)
+                printf("\nStack is Empty\n");
+            else
+                printf("\nItem at the top is = %d\n",data);
             break;
 
         case 4:
@@ -83,7 +87,6 @@ void run()
 
         default:
             printf("\nWrong Choice..Try again\n");
-            choice=menu();
         }
     }
     return 0;
@@ -119,4 +122,10 @@ int pop()
         return Stack[Top--];
 }
 
-
+int showTop()
+{
+    if(Top==-1)
+        return -999;
+    else
+        return Stack[Top];
+}
