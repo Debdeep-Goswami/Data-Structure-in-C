@@ -21,6 +21,7 @@ int Stack[MAX];
 /************************ Used Functions *****************/
 
 //--------------------- Necessory for Stack Operation -------
+
 void push(int);
 
 int pop();
