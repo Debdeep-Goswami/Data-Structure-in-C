@@ -82,7 +82,7 @@ void run()
             break;
 
         case 4:
-            //display_stack();
+            display_stack();
             break;
 
         default:
@@ -111,7 +111,7 @@ void push(int data)
     if(Top==Stack_Size-1)
         printf("\nOverflow");
     else
-        Stack[++Top];
+        Stack[++Top]=data;
 }
 
 int pop()
@@ -128,4 +128,14 @@ int showTop()
         return -999;
     else
         return Stack[Top];
+}
+
+void display_stack()
+{
+    int i;
+    if(Top==-1)
+        printf("\nStack is Empty\n");
+    else
+        for(i=Top;i>=0;i--)
+            printf("\n|  %d  |",Stack[i]);
 }
