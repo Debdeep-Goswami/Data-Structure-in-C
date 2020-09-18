@@ -110,3 +110,11 @@ void push(int data)
     else
         Stack[++Top];
 }
+
+int pop()
+{
+    if(Top==-1)
+        printf("\nUnderflow");
+    else
+        return Stack[Top--];
+}
