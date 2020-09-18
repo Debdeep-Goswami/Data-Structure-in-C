@@ -105,7 +105,7 @@ int menu()
 
 void push(int data)
 {
-    if(Top==Stack_Size)
+    if(Top==Stack_Size-1)
         printf("\nOverflow");
     else
         Stack[++Top];
@@ -118,3 +118,5 @@ int pop()
     else
         return Stack[Top--];
 }
+
+
