@@ -68,8 +68,10 @@ void run()
             break;
 
         case 2:
-            //data=pop();
-            printf("\nItem popped = %d\n",data);
+            data=pop();
+            if(data==-999);
+            else
+                printf("\nItem popped = %d\n",data);
             break;
 
         case 3:
@@ -109,11 +111,26 @@ void push(int data)
 {
     NODE *newNode=(NODE*)malloc(sizeof(NODE));
     if(newNode==NULL)
-        printf("\nOverflow");
+        printf("\nOverflow\n");
     else
     {
         newNode->data=data;
         newNode->link=head;
         head=newNode;
     }
+}
+
+int pop()
+{
+    int data=-999;
+    NODE* temp=head;
+    if(temp==NULL)
+        printf("\nUnderflow\n");
+    else
+    {
+        data=temp->data;
+        head=head->link;
+        free(temp);
+    }
+    return data;
 }
