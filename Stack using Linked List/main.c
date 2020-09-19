@@ -129,8 +129,17 @@ int pop()
     else
     {
         data=temp->data;
-        head=head->link;
+        head=temp->link;
         free(temp);
     }
+    return data;
+}
+
+int showTop()
+{
+    int data=-999;
+    if(head==NULL);
+    else
+        data=head->data;
     return data;
 }
