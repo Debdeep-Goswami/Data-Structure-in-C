@@ -71,7 +71,9 @@ void run()
 
         case 2:
             data=pop();
-            printf("\nItem popped = %d\n",data);
+            if(data==-999);
+            else
+                printf("\nItem popped = %d\n",data);
             break;
 
         case 3:
@@ -117,10 +119,12 @@ void push(int data)
 
 int pop()
 {
+    int data=-999;
     if(Top==-1)
         printf("\nUnderflow");
     else
-        return Stack[Top--];
+        data=Stack[Top--];
+    return data;
 }
 
 int showTop()
