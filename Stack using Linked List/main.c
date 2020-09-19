@@ -14,7 +14,7 @@ typedef struct node
     struct node * link;
 }NODE;
 
-NODE*head=NULL; //  This will work as the top of the stack
+NODE *head=NULL; //  This will work as the top of the stack
 
 /*********************************************************/
 
@@ -64,7 +64,7 @@ void run()
         case 1:
             printf("\nEnter the data = ");
             scanf("%d",&data);
-            //push(data);
+            push(data);
             break;
 
         case 2:
@@ -103,4 +103,17 @@ int menu()
     printf("\nEnter your choice = ");
     scanf("%d",&choice);
     return choice;
+}
+
+void push(int data)
+{
+    NODE *newNode=(NODE*)malloc(sizeof(NODE));
+    if(newNode==NULL)
+        printf("\nOverflow");
+    else
+    {
+        newNode->data=data;
+        newNode->link=head;
+        head=newNode;
+    }
 }
