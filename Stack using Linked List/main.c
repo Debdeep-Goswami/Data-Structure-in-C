@@ -75,7 +75,7 @@ void run()
             break;
 
         case 3:
-            //data=showTop();
+            data=showTop();
             if(data==-999)
                 printf("\nStack is Empty\n");
             else
@@ -83,14 +83,13 @@ void run()
             break;
 
         case 4:
-            //display_stack();
+            display_stack();
             break;
 
         default:
             printf("\nWrong Choice..Try again\n");
         }
     }
-    return 0;
 }
 
 int menu()
@@ -142,4 +141,17 @@ int showTop()
     else
         data=head->data;
     return data;
+}
+
+void display_stack()
+{
+    NODE * temp=head;
+    if(temp==NULL)
+        printf("\nStack is Empty\n");
+    else
+        while(temp!=NULL)
+        {
+            printf("\n|  %d  |",temp->data);
+            temp=temp->link;
+        }
 }
