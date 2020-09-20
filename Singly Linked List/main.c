@@ -21,9 +21,9 @@ typedef struct node
 
 //________________________________Insert Functions_________
 
-NODE* insert_begin(NODE *head,int data);
+void insert_begin(NODE **head,int data);
 
-NODE* insert_end(NODE *head,int data);
+void insert_end(NODE **head,int data);
 
 NODE * insert_after(NODE* head, int after, int data);
 //_________________________________________________________
@@ -41,7 +41,7 @@ NODE* reverse_list(NODE*);
 
 int len(NODE * head);
 
-NODE* generateRandomList(NODE* head ,int no_of_nodes);
+void generateRandomList(NODE ** head ,int no_of_nodes);
 
 int menu();
 
@@ -60,22 +60,21 @@ int main()
 //__________________END of Main Function ________________
 
 
-NODE* insert_begin(NODE *head,int data)
+void insert_begin(NODE **head,int data)
 {
     NODE *newNode=(NODE*)malloc(sizeof(NODE));
     newNode->data=data;
-    newNode->link=head;
-    head=newNode;
-    return head;
+    newNode->link=*head;
+    *head=newNode;
 }
 
-NODE* insert_end(NODE *head,int data)
+void insert_end(NODE **head,int data)
 {
     NODE *newNode;
-    NODE *temp=head;
+    NODE *temp=*head;
 
-    if(head==NULL)
-        head=insert_begin(head,data);
+    if(*head==NULL)
+        insert_begin(&(*head),data);
     else
     {
         while(temp->link!=NULL)
@@ -86,7 +85,6 @@ NODE* insert_end(NODE *head,int data)
         newNode->link=temp->link;
         temp->link=newNode;
     }
-    return head;
 }
 
 NODE * insert_after(NODE* head, int after, int data)
@@ -182,13 +180,12 @@ int len(NODE * head)
     return counter;
 }
 
-NODE* generateRandomList(NODE* head,int no_of_nodes)
+void generateRandomList(NODE ** head,int no_of_nodes)
 {
     int i;
     srand(time(0));
     for(i=0;i<no_of_nodes;i++)
-        head=insert_end(head,rand()%100);
-    return head;
+        insert_end(&(*head),rand()%100);
 }
 
 void run()
@@ -209,13 +206,13 @@ void run()
         case 1:
             printf("\nEnter the data = ");
             scanf("%d",&data);
-            head=insert_begin(head,data);
+            insert_begin(&head,data);
             break;
 
         case 2:
             printf("\nEnter the data = ");
             scanf("%d",&data);
-            head=insert_end(head,data);
+            insert_end(&head,data);
             break;
 
         case 3:
@@ -239,7 +236,7 @@ void run()
         case 6:
             printf("\nEnter the number of nodes to be inserted randomly = ");
             scanf("%d",&data);
-            head=generateRandomList(head,data);
+            generateRandomList(&head,data);
             break;
 
         case 7:
