@@ -37,13 +37,15 @@ NODE* delete_end(NODE * head);
 
 void display_list(NODE *head);
 
+NODE* reverse_list(NODE*);
+
 int len(NODE * head);
 
 NODE* generateRandomList(NODE* head ,int no_of_nodes);
 
 /********************************************************/
 
-/*________________________ Main Function ________________*/
+//________________________ Main Function ________________
 
 int main()
 {
@@ -51,7 +53,7 @@ int main()
     return 0;
 }
 
-/*__________________END of Main Function ________________*/
+//__________________END of Main Function ________________
 
 
 NODE* insert_begin(NODE *head,int data)
@@ -127,14 +129,39 @@ NODE* delete_end(NODE * head)
 
 void display_list(NODE *head)
 {
-    printf("\nInside display function\n");
-    NODE* temp = head;
-    while(temp!=NULL)
+    if(head==NULL)
+        printf("\nList is Empty..\n");
+    else
     {
-        printf("\t%d",temp->data);
-        temp=temp->link;
+        printf("\nList Display\n");
+        NODE* temp = head;
+        while(temp!=NULL)
+        {
+            printf("\t%d",temp->data);
+            temp=temp->link;
+        }
     }
     printf("\n");
+}
+
+NODE* reverse_list(NODE* head)
+{
+    NODE* curr=head;
+    NODE *prev=NULL,*next=NULL;
+
+    if(curr==NULL);
+    else
+    {
+        while(curr!=NULL)
+        {
+            next=curr->link;
+            curr->link=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
+    return head;
 }
 
 int len(NODE * head)
@@ -173,25 +200,12 @@ void run()
     head=delete_end(head);
     display_list(head);
     */
-    head=generateRandomList(head,100);
+    head=generateRandomList(head,3);
     display_list(head);
 
-    head=delete_begin(head);
-    head=delete_end(head);
+    head=reverse_list(head);
     display_list(head);
 }
-
-NODE* generateRandomList(NODE* head,int no_of_nodes)
-{
-    int i;
-    srand(time(0));
-    for(i=0;i<no_of_nodes;i++)
-    {
-        head=insert_end(head,rand()%100);
-    }
-    return head;
-}
-
 void menu()
 {
     printf("\nEnter your choice :- ");
@@ -204,4 +218,12 @@ void menu()
     printf("\nTo Exit\t\t\t =0");
     printf("\n");
     printf("\n");
+}
+NODE* generateRandomList(NODE* head,int no_of_nodes)
+{
+    int i;
+    srand(time(0));
+    for(i=0;i<no_of_nodes;i++)
+        head=insert_end(head,rand()%100);
+    return head;
 }
