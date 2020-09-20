@@ -30,9 +30,9 @@ NODE * insert_after(NODE* head, int after, int data);
 
 //________________________________Delete Functions_________
 
-NODE* delete_begin(NODE * head);
+void delete_begin(NODE ** head);
 
-NODE* delete_end(NODE * head);
+void delete_end(NODE ** head);
 //_________________________________________________________
 
 void display_list(NODE *head);
@@ -107,28 +107,30 @@ NODE * insert_after(NODE* head, int after, int data)
     return head;
 }
 
-NODE* delete_begin(NODE * head)
+void delete_begin(NODE ** head)
 {
-    NODE *temp=head;
-    head=head->link;
+    NODE *temp=*head;
+    *head=(*head)->link;
     free(temp);
-    return head;
+    //return head;
 }
 
-NODE* delete_end(NODE * head)
+void delete_end(NODE ** head)
 {
-    NODE *temp=head;
+    NODE *temp=*head;
     NODE *temp2=NULL;
-
-    while(temp->link!=NULL)
+    if(temp->link==NULL)
+        delete_begin(&(*head));
+    else
     {
-        temp2=temp;
-        temp=temp->link;
+        while(temp->link!=NULL)
+        {
+            temp2=temp;
+            temp=temp->link;
+        }
+        temp2->link=NULL;
+        free(temp);
     }
-    temp2->link=NULL;
-    free(temp);
-
-    return head;
 }
 
 void display_list(NODE *head)
@@ -217,11 +219,17 @@ void run()
             break;
 
         case 3:
-            head=delete_begin(head);
+            if(head!=NULL)
+                delete_begin(&head);
+            else
+                display_list(head);
             break;
 
         case 4:
-            head=delete_end(head);
+            if(head!=NULL)
+                delete_end(&head);
+            else
+                display_list(head);
             break;
 
         case 5:
