@@ -17,7 +17,7 @@ typedef struct node
 
 /*********************************************************/
 
-/************************ Used Functions *****************/
+/************************ Prototype of the Functions *****************/
 
 //________________________________Insert Functions_________
 
@@ -25,7 +25,7 @@ void insert_begin(NODE **head,int data);
 
 void insert_end(NODE **head,int data);
 
-NODE * insert_after(NODE* head, int after, int data);
+void insert_after(NODE **head, int after, int data);
 //_________________________________________________________
 
 //________________________________Delete Functions_________
@@ -35,9 +35,12 @@ void delete_begin(NODE ** head);
 void delete_end(NODE ** head);
 //_________________________________________________________
 
+
+// _____________________ Utility Functions ________________
+
 void display_list(NODE *head);
 
-NODE* reverse_list(NODE*);
+void reverse_list(NODE **);
 
 int len(NODE * head);
 
@@ -59,6 +62,8 @@ int main()
 
 //__________________END of Main Function ________________
 
+
+/*****************   Function Definitions  ***************/
 
 void insert_begin(NODE **head,int data)
 {
@@ -87,21 +92,34 @@ void insert_end(NODE **head,int data)
     }
 }
 
-NODE * insert_after(NODE* head, int after, int data)
+void insert_after(NODE **head, int after, int data)
 {
-    NODE *temp=head;
+    NODE *temp=*head;
     NODE *newNode=(NODE*)malloc(sizeof(NODE));
-    newNode->data=data;
-
-    while(temp->link!=NULL)
+    if(*head==NULL)
     {
-        if(temp->data==after)
-        {
-            newNode->link=temp->link;
-            temp->link=newNode;
-        }
-        temp=temp->link;
+        printf("\nList is Empty, data Inserted as the first node of the list\n");
+        insert_begin(&(*head),data);
     }
+    else if(temp->data==after)
+            insert_end(&(*head),data);
+    else
+    {
+        newNode->data=data;
+        while(temp->link!=NULL)
+        {
+            if(temp->data==after)
+            {
+                newNode->link=temp->link;
+                temp->link=newNode;
+                return;
+            }
+            temp=temp->link;
+        }
+        printf("\n Target node not found, data inserted at the end of the list\n");
+        insert_end(&(*head),data);
+    }
+
     return head;
 }
 
@@ -133,12 +151,13 @@ void delete_end(NODE ** head)
 
 void display_list(NODE *head)
 {
-    if(head==NULL)
+    NODE* temp = head;
+
+    if(temp==NULL)
         printf("\nList is Empty..\n");
     else
     {
         printf("\nList Display\n");
-        NODE* temp = head;
         while(temp!=NULL)
         {
             printf("\t%d",temp->data);
@@ -148,10 +167,10 @@ void display_list(NODE *head)
     printf("\n");
 }
 
-NODE* reverse_list(NODE* head)
+void reverse_list(NODE ** head)
 {
-    NODE* curr=head;
-    NODE *prev=NULL,*next=NULL;
+    NODE *curr = *head;
+    NODE *prev = NULL,*next = NULL;
 
     if(curr==NULL);
     else
@@ -163,9 +182,8 @@ NODE* reverse_list(NODE* head)
             prev=curr;
             curr=next;
         }
-        head=prev;
     }
-    return head;
+    *head=prev;
 }
 
 int len(NODE * head)
@@ -188,11 +206,33 @@ void generateRandomList(NODE ** head,int no_of_nodes)
         insert_end(&(*head),rand()%100);
 }
 
+int menu()
+{
+    int choice;
+    printf("\nList of Choices\n");
+    printf("\n Insert at the Begining\t\t = 1");
+    printf("\n Insert at the end\t\t = 2");
+    printf("\n Insert after \t\t\t = 3");
+    printf("\n Delete from the Begining\t = 4");
+    printf("\n Delete from the end\t\t = 5");
+    printf("\n Display the list\t\t = 6");
+    printf("\n Generate Random List\t\t = 7");
+    printf("\n Reverse the List\t\t = 8");
+    printf("\n Length of the List\t\t = 9");
+    printf("\n Exit\t\t\t\t = 0");
+    printf("\n\n Enter your Choice = ");
+    scanf("%d",&choice);
+
+    system("cls");
+    return choice;
+}
+
+
 void run()
 {
     NODE *head=NULL;
 
-    int choice,data;
+    int choice,data,after;
     printf("\nWelcome to the program of Linked List\n");
 
     while(choice!=0)
@@ -216,31 +256,45 @@ void run()
             break;
 
         case 3:
+
+            printf("\nEnter the value of the target node = ");
+            scanf("%d",&after);
+            printf("\nEnter the data to be inserted = ");
+            scanf("%d",&data);
+            insert_after(&head,after,data);
+            break;
+
+        case 4:
             if(head!=NULL)
                 delete_begin(&head);
             else
                 display_list(head);
             break;
 
-        case 4:
+        case 5:
             if(head!=NULL)
                 delete_end(&head);
             else
                 display_list(head);
             break;
 
-        case 5:
+        case 6:
             display_list(head);
             break;
 
-        case 6:
+        case 7:
             printf("\nEnter the number of nodes to be inserted randomly = ");
             scanf("%d",&data);
             generateRandomList(&head,data);
             break;
 
-        case 7:
-            head=reverse_list(head);
+        case 8:
+            reverse_list(&head);
+            break;
+
+        case 9:
+            data=len(head);
+            printf("\n Length of the List is %d\n",data);
             break;
 
         default:
@@ -249,20 +303,4 @@ void run()
     }
 }
 
-int menu()
-{
-    int choice;
-    printf("\nList of Choices\n");
-    printf("\n Insert at the Begining\t\t = 1");
-    printf("\n Insert at the end\t\t = 2");
-    printf("\n Delete from the Begining\t = 3");
-    printf("\n Delete from the end\t\t = 4");
-    printf("\n Display the list\t\t = 5");
-    printf("\n Generate Random List\t\t = 6");
-    printf("\n Reverse the List\t\t = 7");
-    printf("\n Exit\t\t\t\t = 0");
-    printf("\n\n Enter your Choice = ");
-    scanf("%d",&choice);
-    return choice;
-}
-
+/***************  End of Function Definitions  ****************/
