@@ -43,6 +43,10 @@ int len(NODE * head);
 
 NODE* generateRandomList(NODE* head ,int no_of_nodes);
 
+int menu();
+
+void run();
+
 /********************************************************/
 
 //________________________ Main Function ________________
@@ -176,49 +180,6 @@ int len(NODE * head)
     return counter;
 }
 
-void run()
-{
-    NODE *head=NULL;
-    /*
-    NODE *n1=(NODE*)malloc(sizeof(NODE));
-    n1->data=50;
-    n1->link=NULL;
-    head=n1;
-    head=insert_begin(head,40);
-    head=insert_begin(head,30);
-    head=insert_begin(head,20);
-    head=insert_begin(head,10);
-    display_list(head);
-    head=insert_end(head,60);
-    head=insert_end(head,70);
-    head=insert_end(head,80);
-    head=insert_end(head,90);
-    head=insert_end(head,100);
-    display_list(head);
-    head=delete_begin(head);
-    display_list(head);
-    head=delete_end(head);
-    display_list(head);
-    */
-    head=generateRandomList(head,3);
-    display_list(head);
-
-    head=reverse_list(head);
-    display_list(head);
-}
-void menu()
-{
-    printf("\nEnter your choice :- ");
-    printf("\nTo Insert at the Begining\t = 1");
-    printf("\nTo Insert at the end\t\t = 2");
-    printf("\nTo Delete from the Begining\t = 3");
-    printf("\nTo Delete from the end = 4");
-    printf("\nTo Display the list\t\t = 5");
-    printf("\nTo Generate Random List\t\t = 6");
-    printf("\nTo Exit\t\t\t =0");
-    printf("\n");
-    printf("\n");
-}
 NODE* generateRandomList(NODE* head,int no_of_nodes)
 {
     int i;
@@ -227,3 +188,76 @@ NODE* generateRandomList(NODE* head,int no_of_nodes)
         head=insert_end(head,rand()%100);
     return head;
 }
+
+void run()
+{
+    NODE *head=NULL;
+
+    int choice,data;
+    printf("\nWelcome to the program of Linked List\n");
+
+    while(choice!=0)
+    {
+        choice=menu();
+        switch(choice)
+        {
+        case 0:
+            break;
+
+        case 1:
+            printf("\nEnter the data = ");
+            scanf("%d",&data);
+            head=insert_begin(head,data);
+            break;
+
+        case 2:
+            printf("\nEnter the data = ");
+            scanf("%d",&data);
+            head=insert_end(head,data);
+            break;
+
+        case 3:
+            head=delete_begin(head);
+            break;
+
+        case 4:
+            head=delete_end(head);
+            break;
+
+        case 5:
+            display_list(head);
+            break;
+
+        case 6:
+            printf("\nEnter the number of nodes to be inserted randomly = ");
+            scanf("%d",&data);
+            head=generateRandomList(head,data);
+            break;
+
+        case 7:
+            head=reverse_list(head);
+            break;
+
+        default:
+            printf("\nWrong Choice..Try again\n");
+        }
+    }
+}
+
+int menu()
+{
+    int choice;
+    printf("\nList of Choices\n");
+    printf("\n Insert at the Begining\t\t = 1");
+    printf("\n Insert at the end\t\t = 2");
+    printf("\n Delete from the Begining\t = 3");
+    printf("\n Delete from the end\t\t = 4");
+    printf("\n Display the list\t\t = 5");
+    printf("\n Generate Random List\t\t = 6");
+    printf("\n Reverse the List\t\t = 7");
+    printf("\n Exit\t\t\t\t = 0");
+    printf("\n\n Enter your Choice = ");
+    scanf("%d",&choice);
+    return choice;
+}
+
