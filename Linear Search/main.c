@@ -38,5 +38,14 @@ int main()
 
 /*****************   Function Definitions  ***************/
 
+void getData(int *a,int no_of_elements)
+{
+    int i;
+    printf("\nEnter %d data one by one \n",i);
+    for(i=0;i<no_of_elements;i++)
+    {
+        printf("\nEnter data number %d = ",i+1);
+        scanf("%d",&a[i]);
+    }
+}
 
-/***************  End of Function Definitions  ****************/
