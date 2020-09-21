@@ -56,4 +56,13 @@ void generateData(int *a,int no_of_elements)
     for(i=0;i<no_of_elements;i++)
         a[i]=rand()%100;
 }
+int search(int *a,int no_of_elements,int search_element)
+{
+    int i;
+    for(i=0;i<no_of_elements;i++)
+        if(a[i]==search_element)
+            return (i+1);
+    return 0;
+}
+
 
