@@ -65,4 +65,30 @@ int search(int *a,int no_of_elements,int search_element)
     return 0;
 }
 
+void display(int *a,int no_of_elements)
+{
+    int i;
+    printf("\nThe elements in the array :-\n");
+    for(i=0;i<no_of_elements;i++)
+        printf("  %d",a[i]);
+    printf("\n");
+}
+
+int menu()
+{
+    int choice=-999;
+
+    printf("\nList of Choices\n");
+    printf("\n Insert Data Manually\t = 1");
+    printf("\n Fill Data Randomly\t = 2");
+    printf("\n Display Data array\t = 3");
+    printf("\n Search Element\t\t = 4");
+    printf("\n Exit\t\t\t = 0");
+    printf("\n\n Enter your Choice = ");
+    scanf("%d",&choice);
+
+    system("cls");
+    return choice;
+}
+
 
