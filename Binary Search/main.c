@@ -43,7 +43,7 @@ int main()
 void getData(int *a,int no_of_elements)
 {
     int i;
-    printf("\nEnter %d data one by one \n",i);
+    printf("\nEnter %d data one by one \n",no_of_elements);
     for(i=0;i<no_of_elements;i++)
     {
         printf("\nEnter data number %d = ",i+1);
@@ -78,19 +78,19 @@ void sortData(int *a,int no_of_elements)
 
 int binary_search(int *a,int no_of_elements,int search_element)
 {
-    int i,low=0,mid,high=no_of_elements;
+    int low=0,mid,high=no_of_elements;
     while(low<=high)
     {
         mid=(low+high)/2;
 
         if(search_element==a[mid])
-            return mid;
+            return mid+1;
         else if(search_element<a[mid])
             high=mid-1;
         else
             low=mid+1;
     }
-    return 0;
+    return -1;
 }
 
 void display(int *a,int no_of_elements)
@@ -108,9 +108,9 @@ int menu()
 
     printf("\n______________________________________\n");
     printf("\n********* Binary Search **************");
-    printf("\n______________________________________");
+    printf("\n______________________________________\n");
 
-    printf("\nList of Choices\n");
+    printf("\n List of Choices\n");
     printf("\n Insert Data Manually\t = 1");
     printf("\n Insert Data Randomly\t = 2");
     printf("\n Display Data array\t = 3");
@@ -122,4 +122,52 @@ int menu()
     system("cls");
     return choice;
 }
+
+void run()
+{
+    int data_array[MAX],no_of_elements,search_element,choice=-999,position;
+    while(choice!=0)
+    {
+        choice=menu();
+        switch(choice)
+        {
+        case 0:
+            break;
+
+        case 1:
+            printf("\nEnter the number of elements to be inserted manually = ");
+            scanf("%d",&no_of_elements);
+            getData(data_array,no_of_elements);
+            sortData(data_array,no_of_elements);
+            break;
+
+        case 2:
+            printf("\nEnter the number of elements to be inserted randomly = ");
+            scanf("%d",&no_of_elements);
+            generateData(data_array,no_of_elements);
+            sortData(data_array,no_of_elements);
+            break;
+
+        case 3:
+            display(data_array,no_of_elements);
+            break;
+
+        case 4:
+            printf("\nEnter the element to be searched = ");
+            scanf("%d",&search_element);
+            position=binary_search(data_array,no_of_elements,search_element);
+            if(position==-1)
+                printf("\n%d Not found inside the array \n",search_element);
+            else
+                printf("\n%d Found inside the array \n",search_element);
+            break;
+
+        default:
+            printf("\nWrong Choice.. Try Again..\n");
+
+        }
+    }
+}
+
+/***************  End of Function Definitions  ****************/
 
