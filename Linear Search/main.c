@@ -13,7 +13,7 @@ void getData(int *,int);
 
 void generateData(int *,int);
 
-int search(int*,int,int);
+int linear_search(int*,int,int);
 
 void display(int*,int);
 
@@ -56,13 +56,14 @@ void generateData(int *a,int no_of_elements)
     for(i=0;i<no_of_elements;i++)
         a[i]=rand()%100;
 }
-int search(int *a,int no_of_elements,int search_element)
+
+int linear_search(int *a,int no_of_elements,int search_element)
 {
     int i;
     for(i=0;i<no_of_elements;i++)
         if(a[i]==search_element)
-            return (i+1);
-    return 0;
+            return i;
+    return -1;
 }
 
 void display(int *a,int no_of_elements)
@@ -121,8 +122,8 @@ void run()
         case 4:
             printf("\nEnter the element to be searched = ");
             scanf("%d",&search_element);
-            position=search(data_array,no_of_elements,search_element);
-            if(position==0)
+            position=linear_search(data_array,no_of_elements,search_element);
+            if(position==-1)
                 printf("\n%d Not found inside the array \n",search_element);
             else
                 printf("\n%d Found inside the array \n",search_element);
