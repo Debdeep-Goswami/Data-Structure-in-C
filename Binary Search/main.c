@@ -15,7 +15,7 @@ void generateData(int *,int);
 
 void sortData(int*,int);
 
-int search(int*,int,int);
+int binary_search(int*,int,int);
 
 void display(int*,int);
 
@@ -75,3 +75,21 @@ void sortData(int *a,int no_of_elements)
         }
     }
 }
+
+int binary_search(int *a,int no_of_elements,int search_element)
+{
+    int i,low=0,mid,high=no_of_elements;
+    while(low<=high)
+    {
+        mid=(low+high)/2;
+
+        if(search_element==a[mid])
+            return mid;
+        else if(search_element<a[mid])
+            high=mid-1;
+        else
+            low=mid+1;
+    }
+    return 0;
+}
+
