@@ -102,3 +102,24 @@ void display(int *a,int no_of_elements)
     printf("\n");
 }
 
+int menu()
+{
+    int choice=-999;
+
+    printf("\n______________________________________\n");
+    printf("\n********* Binary Search **************");
+    printf("\n______________________________________");
+
+    printf("\nList of Choices\n");
+    printf("\n Insert Data Manually\t = 1");
+    printf("\n Insert Data Randomly\t = 2");
+    printf("\n Display Data array\t = 3");
+    printf("\n Search Element\t\t = 4");
+    printf("\n Exit\t\t\t = 0");
+    printf("\n\n Enter your Choice = ");
+    scanf("%d",&choice);
+
+    system("cls");
+    return choice;
+}
+
