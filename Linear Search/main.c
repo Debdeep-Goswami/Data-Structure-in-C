@@ -41,7 +41,7 @@ int main()
 void getData(int *a,int no_of_elements)
 {
     int i;
-    printf("\nEnter %d data one by one \n",i);
+    printf("\nEnter %d data one by one \n",no_of_elements);
     for(i=0;i<no_of_elements;i++)
     {
         printf("\nEnter data number %d = ",i+1);
@@ -83,9 +83,9 @@ int menu()
     printf("\n********* Linear Search **************");
     printf("\n______________________________________\n");
 
-    printf("\nList of Choices\n");
+    printf("\n List of Choices\n");
     printf("\n Insert Data Manually\t = 1");
-    printf("\n Fill Data Randomly\t = 2");
+    printf("\n Insert Data Randomly\t = 2");
     printf("\n Display Data array\t = 3");
     printf("\n Search Element\t\t = 4");
     printf("\n Exit\t\t\t = 0");
