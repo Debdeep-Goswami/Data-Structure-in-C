@@ -79,6 +79,10 @@ int menu()
 {
     int choice=-999;
 
+    printf("\n______________________________________\n");
+    printf("\n********* Linear Search **************");
+    printf("\n______________________________________\n");
+
     printf("\nList of Choices\n");
     printf("\n Insert Data Manually\t = 1");
     printf("\n Fill Data Randomly\t = 2");
