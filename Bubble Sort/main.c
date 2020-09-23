@@ -75,3 +75,21 @@ void bubble_sort_ascending(int *a,int no_of_elements)
         }
     }
 }
+
+void bubble_sort_descending(int *a,int no_of_elements)
+{
+    int temp,i,j;
+    for(i=0;i<no_of_elements-1;i++)
+    {
+        for(j=0;j<(no_of_elements-1)-i;j++)
+        {
+            if(a[j]<a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+}
+
