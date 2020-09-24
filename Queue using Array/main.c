@@ -49,3 +49,13 @@ int main()
 // _______________________ END of Main Function __________
 
 
+/*****************   Function Definitions  ***************/
+
+void enqueue(int data)
+{
+    if(Rear>=Queue_Size)
+        printf("\nQueue is Full\n");
+    else
+        Queue[Rear++]=data;
+
+}
