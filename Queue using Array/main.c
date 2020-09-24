@@ -53,7 +53,7 @@ int main()
 
 void enqueue(int data)
 {
-    if(Rear>=Queue_Size)
+    if(Rear==Queue_Size)
         printf("\nQueue is Full\n");
     else
         Queue[Rear++]=data;
@@ -64,8 +64,7 @@ int dequeue()
 {
     int data=-999,i=0;
 
-    if(Front==Rear)
-        return -999;
+    if(Rear==0);
     else
     {
         data=Queue[Front];
@@ -75,6 +74,7 @@ int dequeue()
             Queue[i]=Queue[i+1];
             i++;
         }
+        Rear--;
     }
     return data;
 }
@@ -86,12 +86,11 @@ void display_queue()
         printf("\nQueue is Empty..\n");
     else
     {
-        printf("\nFront -> ");
+        printf("\nFront -> | ");
         while(i<Rear)
-            printf("  %d",Queue[i++]);
-        printf("   <- Rear\n");
+            printf(" %d",Queue[i++]);
+        printf(" | <- Rear\n");
     }
-    Rear--;
 }
 
 
