@@ -62,7 +62,7 @@ void enqueue(int data)
 
 int dequeue()
 {
-    int data,i;
+    int data=-999,i=0;
 
     if(Front==Rear)
         return -999;
@@ -85,11 +85,13 @@ void display_queue()
     if(Front==Rear)
         printf("\nQueue is Empty..\n");
     else
-        printf("Front -> ");
+    {
+        printf("\nFront -> ");
         while(i<Rear)
             printf("  %d",Queue[i++]);
-        printf(" <- Rear\n");
-
+        printf("   <- Rear\n");
+    }
+    Rear--;
 }
 
 
@@ -114,3 +116,45 @@ int menu()
 
     return choice;
 }
+
+void run()
+{
+    int choice,data;
+    printf("\nWelcome to Queue operation program using array\n");
+    printf("\nEnter the maximum size of the Queue = ");
+    scanf("%d",&Queue_Size);
+
+    while(choice!=0)
+    {
+        choice=menu();
+        switch(choice)
+        {
+        case 0:
+            break;
+
+        case 1:
+            printf("\nEnter the data = ");
+            scanf("%d",&data);
+            enqueue(data);
+            break;
+
+        case 2:
+            data=dequeue();
+            if(data==-999)
+                printf("\nQueue is Empty\n");
+            else
+                printf("\nItem deleted is = %d\n",data);
+            break;
+
+        case 3:
+            display_queue();
+            break;
+
+        default:
+            printf("\nWrong Choice..Try again\n");
+        }
+    }
+    return 0;
+}
+
+/***************  End of Function Definitions  ****************/
