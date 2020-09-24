@@ -79,3 +79,16 @@ int dequeue()
     return data;
 }
 
+void display_queue()
+{
+    int i=Front;
+    if(Front==Rear)
+        printf("\nQueue is Empty..\n");
+    else
+        printf("Front -> ");
+        while(i<Rear)
+            printf("  %d",Queue[i++]);
+        printf(" <- Rear\n");
+
+}
+
