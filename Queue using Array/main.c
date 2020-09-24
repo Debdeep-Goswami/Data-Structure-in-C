@@ -92,3 +92,25 @@ void display_queue()
 
 }
 
+
+int menu()
+{
+    int choice=-999;
+
+    printf("\n______________________________________\n");
+    printf("\n******** Queue using Array **********");
+    printf("\n______________________________________\n");
+
+    printf("\n List of Choices\n");
+    printf("\n Insert Into the Queue\t= 1\n");
+    printf("\n Delete from the Queue\t= 2 \n");
+    printf("\n Display Queue\t\t= 3\n");
+    printf("\n Exit\t\t\t= 0\n");
+
+    printf("\n\n Enter your choice = ");
+    scanf("%d",&choice);
+
+    system("cls");
+
+    return choice;
+}
