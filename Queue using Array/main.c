@@ -59,3 +59,23 @@ void enqueue(int data)
         Queue[Rear++]=data;
 
 }
+
+int dequeue()
+{
+    int data,i;
+
+    if(Front==Rear)
+        return -999;
+    else
+    {
+        data=Queue[Front];
+        i=Front;
+        while(i<Rear)
+        {
+            Queue[i]=Queue[i+1];
+            i++;
+        }
+    }
+    return data;
+}
+
