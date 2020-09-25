@@ -85,3 +85,21 @@ void display()
 }
 
 
+int partition(int low,int high)
+{
+    int pivot=Data_array[low];
+    int i=low,j=high;
+    while(i<j)
+    {
+        while(Data_array[i]<=pivot)
+            i++;
+        while(Data_array[j]>pivot)
+            j--;
+
+        if(i<j)
+            swap(i,j);
+    }
+    swap(low,j);
+    return j;
+}
+
