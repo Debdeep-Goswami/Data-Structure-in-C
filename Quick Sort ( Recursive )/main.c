@@ -121,3 +121,24 @@ void swap(int i,int j)
     Data_array[j]=temp;
 }
 
+int menu()
+{
+    int choice=-999;
+
+    printf("\n______________________________________\n");
+    printf("\n***********  Quick Sort  *************");
+    printf("\n______________________________________\n");
+
+    printf("\n List of Choices\n");
+    printf("\n Insert Data Manually\t = 1");
+    printf("\n Insert Data Randomly\t = 2");
+    printf("\n Display Data array\t = 3");
+    printf("\n Quick Sort\t\t = 4");
+    printf("\n Exit\t\t\t = 0");
+    printf("\n\n Enter your Choice = ");
+    scanf("%d",&choice);
+
+    system("cls");
+    return choice;
+}
+
