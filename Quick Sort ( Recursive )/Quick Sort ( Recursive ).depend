@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1601034039 source:d:\cc++\codeblock projects\c\quick sort ( recursive )\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
