@@ -114,3 +114,10 @@ void quick_sort(int low,int high)
     }
 }
 
+void swap(int i,int j)
+{
+    int temp=Data_array[i];
+    Data_array[i]=Data_array[j];
+    Data_array[j]=temp;
+}
+
