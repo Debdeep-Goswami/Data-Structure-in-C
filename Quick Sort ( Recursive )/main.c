@@ -142,3 +142,42 @@ int menu()
     return choice;
 }
 
+void run()
+{
+    int choice=-999;
+    while(choice!=0)
+    {
+        choice=menu();
+        switch(choice)
+        {
+        case 0:
+            break;
+
+        case 1:
+            printf("\nEnter the number of elements to be inserted manually = ");
+            scanf("%d",&No_of_elements);
+            getData();
+            break;
+
+        case 2:
+            printf("\nEnter the number of elements to be inserted randomly = ");
+            scanf("%d",&No_of_elements);
+            generateData();
+            break;
+
+        case 3:
+            display();
+            break;
+
+        case 4:
+            quick_sort(0,No_of_elements);
+            break;
+
+        default:
+            printf("\nWrong Choice.. Try Again..\n");
+
+        }
+    }
+}
+
+/***************  End of Function Definitions  ****************/
