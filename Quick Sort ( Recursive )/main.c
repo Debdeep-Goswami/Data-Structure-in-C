@@ -103,3 +103,14 @@ int partition(int low,int high)
     return j;
 }
 
+void quick_sort(int low,int high)
+{
+    int j;
+    if(low<high)
+    {
+        j=partition(low,high);
+        quick_sort(low,j);
+        quick_sort(j+1,high);
+    }
+}
+
