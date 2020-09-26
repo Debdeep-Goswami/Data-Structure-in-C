@@ -59,3 +59,20 @@ void generateData(int *a,int no_of_elements)
         a[i]=rand()%100;
 }
 
+void selection_sort_ascending(int *a,int no_of_elements)
+{
+    int min_index,temp,i,j;
+    for(i=0;i<no_of_elements-1;i++)
+    {
+        min_index=i;
+
+        for(j=i+1;j<no_of_elements;j++)
+            if(a[min_index]>a[j])
+                min_index=j;
+
+        temp=a[min_index];
+        a[min_index]=a[i];
+        a[i]=temp;
+    }
+}
+
