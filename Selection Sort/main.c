@@ -76,3 +76,20 @@ void selection_sort_ascending(int *a,int no_of_elements)
     }
 }
 
+void selection_sort_descending(int *a,int no_of_elements)
+{
+    int max_index,temp,i,j;
+    for(i=0;i<no_of_elements-1;i++)
+    {
+        max_index=i;
+
+        for(j=i+1;j<no_of_elements;j++)
+            if(a[max_index]<a[j])
+                max_index=j;
+
+        temp=a[max_index];
+        a[max_index]=a[i];
+        a[i]=temp;
+    }
+}
+
