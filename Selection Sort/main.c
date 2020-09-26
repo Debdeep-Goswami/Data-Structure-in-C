@@ -124,3 +124,56 @@ int menu()
     return choice;
 }
 
+void run()
+{
+    int data_array[MAX],no_of_elements,search_element,choice=-999,position;
+    while(choice!=0)
+    {
+        choice=menu();
+        switch(choice)
+        {
+        case 0:
+            break;
+
+        case 1:
+            printf("\nEnter the number of elements to be inserted manually = ");
+            scanf("%d",&no_of_elements);
+            getData(data_array,no_of_elements);
+            break;
+
+        case 2:
+            printf("\nEnter the number of elements to be inserted randomly = ");
+            scanf("%d",&no_of_elements);
+            generateData(data_array,no_of_elements);
+            break;
+
+        case 3:
+            display(data_array,no_of_elements);
+            break;
+
+        case 4:
+            if(no_of_elements>1)
+                selection_sort_ascending(data_array,no_of_elements);
+            else if(no_of_elements==1)
+                printf("\nArray with Single Element is by default sorted\n");
+            else
+                printf("\nArray is Empty.. Add some data before sorting\n");
+            break;
+
+        case 5:
+            if(no_of_elements>1)
+                selection_sort_descending(data_array,no_of_elements);
+            else if(no_of_elements==1)
+                printf("\nArray with Single Element is by default sorted\n");
+            else
+                printf("\nArray is Empty.. Add some data before sorting\n");
+            break;
+
+        default:
+            printf("\nWrong Choice.. Try Again..\n");
+
+        }
+    }
+}
+
+/***************  End of Function Definitions  ****************/
