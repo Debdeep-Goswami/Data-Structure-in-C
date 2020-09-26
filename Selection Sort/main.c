@@ -102,3 +102,25 @@ void display(int *a,int no_of_elements)
     printf("\n");
 }
 
+int menu()
+{
+    int choice=-999;
+
+    printf("\n______________________________________\n");
+    printf("\n********* Selection Sort *************");
+    printf("\n______________________________________\n");
+
+    printf("\n List of Choices\n");
+    printf("\n Insert Data Manually\t\t\t = 1");
+    printf("\n Insert Data Randomly\t\t\t = 2");
+    printf("\n Display Data array\t\t\t = 3");
+    printf("\n Selection Sort in Ascending Order\t = 4");
+    printf("\n Selection Sort in Descending Order\t = 5");
+    printf("\n Exit\t\t\t\t\t = 0");
+    printf("\n\n Enter your Choice = ");
+    scanf("%d",&choice);
+
+    system("cls");
+    return choice;
+}
+

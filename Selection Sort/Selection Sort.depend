@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1601064979 source:d:\cc++\codeblock projects\c\selection sort\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
