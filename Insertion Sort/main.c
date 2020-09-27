@@ -51,3 +51,11 @@ void getData(int *a,int no_of_elements)
     }
 }
 
+void generateData(int *a,int no_of_elements)
+{
+    int i;
+    srand(time(0));
+    for(i=0;i<no_of_elements;i++)
+        a[i]=rand()%100;
+}
+
