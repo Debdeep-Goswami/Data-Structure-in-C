@@ -59,6 +59,15 @@ void generateData(int *a,int no_of_elements)
         a[i]=rand()%100;
 }
 
+void display(int *a,int no_of_elements)
+{
+    int i;
+    printf("\nThe elements in the array :-\n");
+    for(i=0;i<no_of_elements;i++)
+        printf("  %d",a[i]);
+    printf("\n");
+}
+
 void modified_bubble_sort_ascending(int *a,int no_of_elements)
 {
     int temp,i,j,swap;
@@ -103,14 +112,6 @@ void modified_bubble_sort_descending(int *a,int no_of_elements)
     }
 }
 
-void display(int *a,int no_of_elements)
-{
-    int i;
-    printf("\nThe elements in the array :-\n");
-    for(i=0;i<no_of_elements;i++)
-        printf("  %d",a[i]);
-    printf("\n");
-}
 
 int menu()
 {
