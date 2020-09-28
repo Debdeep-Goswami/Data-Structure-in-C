@@ -135,3 +135,46 @@ int menu()
     return choice;
 }
 
+void run()
+{
+    int data_array[MAX],no_of_elements,search_element,choice=-999,position;
+    while(choice!=0)
+    {
+        choice=menu();
+        switch(choice)
+        {
+        case 0:
+            break;
+
+        case 1:
+            printf("\nEnter the number of elements to be inserted manually = ");
+            scanf("%d",&no_of_elements);
+            getData(data_array,no_of_elements);
+            break;
+
+        case 2:
+            printf("\nEnter the number of elements to be inserted randomly = ");
+            scanf("%d",&no_of_elements);
+            generateData(data_array,no_of_elements);
+            break;
+
+        case 3:
+            display(data_array,no_of_elements);
+            break;
+
+        case 4:
+            modified_bubble_sort_ascending(data_array,no_of_elements);
+            break;
+
+        case 5:
+            modified_bubble_sort_descending(data_array,no_of_elements);
+            break;
+
+        default:
+            printf("\nWrong Choice.. Try Again..\n");
+
+        }
+    }
+}
+
+/***************  End of Function Definitions  ****************/
