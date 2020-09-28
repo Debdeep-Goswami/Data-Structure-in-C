@@ -80,3 +80,26 @@ void modified_bubble_sort_ascending(int *a,int no_of_elements)
     }
 }
 
+void modified_bubble_sort_descending(int *a,int no_of_elements)
+{
+    int temp,i,j,swap;
+    for(i=0;i<no_of_elements-1;i++)
+    {
+        swap=0;
+        for(j=0;j<(no_of_elements-1)-i;j++)
+        {
+
+            if(a[j]<a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+                swap++;
+            }
+        }
+        if(swap==1)     // It will work for swap==1 also
+            break;
+
+    }
+}
+
