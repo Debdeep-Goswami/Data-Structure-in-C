@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1601313278 source:d:\cc++\codeblock projects\c\modified bubble sort\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
