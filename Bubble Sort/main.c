@@ -13,11 +13,12 @@ void getData(int *,int);
 
 void generateData(int *,int);
 
+void display(int*,int);
+
 void bubble_sort_ascending(int*,int);
 
 void bubble_sort_descending(int*,int);
 
-void display(int*,int);
 
 // _____________________ Utility Functions ________________
 
@@ -59,40 +60,6 @@ void generateData(int *a,int no_of_elements)
         a[i]=rand()%100;
 }
 
-void bubble_sort_ascending(int *a,int no_of_elements)
-{
-    int temp,i,j;
-    for(i=0;i<no_of_elements-1;i++)
-    {
-        for(j=0;j<(no_of_elements-1)-i;j++)
-        {
-            if(a[j]>a[j+1])
-            {
-                temp=a[j];
-                a[j]=a[j+1];
-                a[j+1]=temp;
-            }
-        }
-    }
-}
-
-void bubble_sort_descending(int *a,int no_of_elements)
-{
-    int temp,i,j;
-    for(i=0;i<no_of_elements-1;i++)
-    {
-        for(j=0;j<(no_of_elements-1)-i;j++)
-        {
-            if(a[j]<a[j+1])
-            {
-                temp=a[j];
-                a[j]=a[j+1];
-                a[j+1]=temp;
-            }
-        }
-    }
-}
-
 void display(int *a,int no_of_elements)
 {
     int i;
@@ -100,6 +67,32 @@ void display(int *a,int no_of_elements)
     for(i=0;i<no_of_elements;i++)
         printf("  %d",a[i]);
     printf("\n");
+}
+
+void bubble_sort_ascending(int *a,int no_of_elements)
+{
+    int temp,i,j;
+    for(i=0;i<no_of_elements-1;i++)
+        for(j=0;j<(no_of_elements-1)-i;j++)
+            if(a[j]>a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+}
+
+void bubble_sort_descending(int *a,int no_of_elements)
+{
+    int temp,i,j;
+    for(i=0;i<no_of_elements-1;i++)
+        for(j=0;j<(no_of_elements-1)-i;j++)
+            if(a[j]<a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
 }
 
 int menu()
