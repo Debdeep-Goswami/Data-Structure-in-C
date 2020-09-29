@@ -13,11 +13,11 @@ void getData(int *,int);
 
 void generateData(int *,int);
 
+void display(int*,int);
+
 void sortData(int*,int);
 
 int binary_search(int*,int,int);
-
-void display(int*,int);
 
 // _____________________ Utility Functions ________________
 
@@ -59,6 +59,15 @@ void generateData(int *a,int no_of_elements)
         a[i]=rand()%100;
 }
 
+void display(int *a,int no_of_elements)
+{
+    int i;
+    printf("\nThe elements in the array :-\n");
+    for(i=0;i<no_of_elements;i++)
+        printf("  %d",a[i]);
+    printf("\n");
+}
+
 void sortData(int *a,int no_of_elements)
 {
     int temp,i,j;
@@ -91,15 +100,6 @@ int binary_search(int *a,int no_of_elements,int search_element)
             low=mid+1;
     }
     return -1;
-}
-
-void display(int *a,int no_of_elements)
-{
-    int i;
-    printf("\nThe elements in the array :-\n");
-    for(i=0;i<no_of_elements;i++)
-        printf("  %d",a[i]);
-    printf("\n");
 }
 
 int menu()
