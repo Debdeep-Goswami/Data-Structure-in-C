@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1601379262 source:d:\cc++\codeblock projects\c\linear search\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

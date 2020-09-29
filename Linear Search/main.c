@@ -13,9 +13,9 @@ void getData(int *,int);
 
 void generateData(int *,int);
 
-int linear_search(int*,int,int);
-
 void display(int*,int);
+
+int linear_search(int*,int,int);
 
 // _____________________ Utility Functions ________________
 
@@ -57,6 +57,15 @@ void generateData(int *a,int no_of_elements)
         a[i]=rand()%100;
 }
 
+void display(int *a,int no_of_elements)
+{
+    int i;
+    printf("\nThe elements in the array :-\n");
+    for(i=0;i<no_of_elements;i++)
+        printf("  %d",a[i]);
+    printf("\n");
+}
+
 int linear_search(int *a,int no_of_elements,int search_element)
 {
     int i;
@@ -66,14 +75,7 @@ int linear_search(int *a,int no_of_elements,int search_element)
     return -1;
 }
 
-void display(int *a,int no_of_elements)
-{
-    int i;
-    printf("\nThe elements in the array :-\n");
-    for(i=0;i<no_of_elements;i++)
-        printf("  %d",a[i]);
-    printf("\n");
-}
+
 
 int menu()
 {
