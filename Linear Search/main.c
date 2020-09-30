@@ -60,9 +60,14 @@ void generateData(int *a,int no_of_elements)
 void display(int *a,int no_of_elements)
 {
     int i;
-    printf("\nThe elements in the array :-\n");
-    for(i=0;i<no_of_elements;i++)
-        printf("  %d",a[i]);
+    if(no_of_elements==0)
+        printf("\nArray is empty\n");
+    else
+    {
+        printf("\nThe elements in the array :-\n");
+        for(i=0;i<no_of_elements;i++)
+            printf("  %d",a[i]);
+    }
     printf("\n");
 }
 
@@ -100,7 +105,7 @@ int menu()
 
 void run()
 {
-    int data_array[MAX],no_of_elements,search_element,choice=-999,position;
+    int data_array[MAX],no_of_elements=0,search_element,choice=-999,position;
     while(choice!=0)
     {
         choice=menu();
