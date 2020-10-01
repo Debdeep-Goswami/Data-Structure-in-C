@@ -87,3 +87,30 @@ void display()
     printf("\n");
 }
 
+
+int merge(int low,int mid,int high)
+{
+    int i,j,k;
+    int temp_Data_array[MAX];
+
+    for(i=low,j=mid+1,k=low ; i<=mid && j<=high ; k++)
+    {
+        //      Merging from both the part
+        if(Data_array[i]<=Data_array[j])
+            temp_Data_array[k]=Data_array[i++];
+        else
+            temp_Data_array[k]=Data_array[j++];
+
+        //      Copy of the data left in any of the part
+        while(i<=mid)
+            temp_Data_array[k++]=Data_array[i++];
+
+        while(j<=high)
+            temp_Data_array[k++]=Data_array[j++];
+
+        //      Copy back the merged data into the original array
+        for(k=low;k<=high;k++)
+            Data_array[k]=temp_Data_array[k];
+    }
+}
+
