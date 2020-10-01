@@ -127,3 +127,24 @@ void merge_sort(int low,int high)
         merge(low,mid,high);
     }
 }
+int menu()
+{
+    int choice=-999;
+
+    printf("\n______________________________________\n");
+    printf("\n***********  Merge Sort  *************");
+    printf("\n______________________________________\n");
+
+    printf("\n List of Choices\n");
+    printf("\n Insert Data Manually\t = 1");
+    printf("\n Insert Data Randomly\t = 2");
+    printf("\n Display Data array\t = 3");
+    printf("\n Merge Sort\t\t = 4");
+    printf("\n Exit\t\t\t = 0");
+    printf("\n\n Enter your Choice = ");
+    scanf("%d",&choice);
+
+    system("cls");
+    return choice;
+}
+
