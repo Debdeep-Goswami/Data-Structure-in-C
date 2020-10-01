@@ -65,3 +65,11 @@ void getData()
     }
 }
 
+void generateData()
+{
+    int i;
+    srand(time(0));
+    for(i=0;i<No_of_elements;i++)
+        Data_array[i]=rand()%100;
+}
+
