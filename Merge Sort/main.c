@@ -114,3 +114,16 @@ int merge(int low,int mid,int high)
     }
 }
 
+void merge_sort(int low,int high)
+{
+    int mid;
+    if(low<high)
+    {
+        mid=(low+high)/2;
+
+        merge_sort(low,mid);
+        merge_sort(mid+1,high);
+
+        merge(low,mid,high);
+    }
+}
