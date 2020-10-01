@@ -52,3 +52,16 @@ int main()
 //__________________END of Main Function ________________
 
 
+/*****************   Function Definitions  ***************/
+
+void getData()
+{
+    int i;
+    printf("\nEnter %d data one by one \n",No_of_elements);
+    for(i=0;i<No_of_elements;i++)
+    {
+        printf("\nEnter data number %d = ",i+1);
+        scanf("%d",&Data_array[i]);
+    }
+}
+
