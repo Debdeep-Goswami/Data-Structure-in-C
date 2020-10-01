@@ -73,3 +73,17 @@ void generateData()
         Data_array[i]=rand()%100;
 }
 
+void display()
+{
+    int i;
+    if(No_of_elements==0)
+        printf("\nArray is empty\n");
+    else
+    {
+        printf("\nThe elements in the array :-\n");
+        for(i=0;i<No_of_elements;i++)
+            printf("  %d",Data_array[i]);
+    }
+    printf("\n");
+}
+
