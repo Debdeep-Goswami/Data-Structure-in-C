@@ -78,9 +78,14 @@ void generateData()
 void display()
 {
     int i;
-    printf("\nThe elements in the array :-\n");
-    for(i=0;i<No_of_elements;i++)
-        printf("  %d",Data_array[i]);
+    if(No_of_elements==0)
+        printf("\nArray is empty\n");
+    else
+    {
+        printf("\nThe elements in the array :-\n");
+        for(i=0;i<No_of_elements;i++)
+            printf("  %d",Data_array[i]);
+    }
     printf("\n");
 }
 
@@ -88,29 +93,34 @@ void display()
 int partition(int low,int high)
 {
     int pivot=Data_array[low];
-    int i=low,j=high;
-    while(i<j)
-    {
-        while(Data_array[i]<=pivot)
-            i++;
-        while(Data_array[j]>pivot)
-            j--;
 
-        if(i<j)
-            swap(i,j);
+    int left_pointer=low;
+    int right_pointer=high;
+
+    while(left_pointer<right_pointer)
+    {
+        while(pivot>=Data_array[left_pointer])
+            left_pointer++;
+
+        while(pivot<Data_array[right_pointer])
+            right_pointer--;
+
+        if(left_pointer<right_pointer)
+            swap(left_pointer,right_pointer);
     }
-    swap(low,j);
-    return j;
+    swap(low,right_pointer);
+    display();
+    return right_pointer;
 }
 
 void quick_sort(int low,int high)
 {
-    int j;
+    int partition_point;
     if(low<high)
     {
-        j=partition(low,high);
-        quick_sort(low,j);
-        quick_sort(j+1,high);
+        partition_point=partition(low,high);
+        quick_sort(low,partition_point-1);
+        quick_sort(partition_point+1,high);
     }
 }
 
@@ -170,7 +180,7 @@ void run()
             break;
 
         case 4:
-            quick_sort(0,No_of_elements);
+            quick_sort(0,No_of_elements-1);
             break;
 
         default:
