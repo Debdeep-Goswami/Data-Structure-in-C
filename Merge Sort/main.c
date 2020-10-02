@@ -100,18 +100,18 @@ int merge(int low,int mid,int high)
             temp_Data_array[k]=Data_array[i++];
         else
             temp_Data_array[k]=Data_array[j++];
-
-        //      Copy of the data left in any of the part
-        while(i<=mid)
-            temp_Data_array[k++]=Data_array[i++];
-
-        while(j<=high)
-            temp_Data_array[k++]=Data_array[j++];
-
-        //      Copy back the merged data into the original array
-        for(k=low;k<=high;k++)
-            Data_array[k]=temp_Data_array[k];
     }
+
+    //      Copy of the data left in any of the part
+    while(i<=mid)
+        temp_Data_array[k++]=Data_array[i++];
+
+    while(j<=high)
+        temp_Data_array[k++]=Data_array[j++];
+
+    //      Copy back the merged data into the original array
+    for(k=low;k<=high;k++)
+        Data_array[k]=temp_Data_array[k];
 }
 
 void merge_sort(int low,int high)
