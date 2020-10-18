@@ -21,7 +21,7 @@ NODE *head=NULL; //  This will work as the top of the stack
 
 /************************ Used Functions *****************/
 
-//--------------------- Necessory for Stack Operation -------
+//--------------------- Necessary for Stack Operation -------
 
 void push(int);
 
