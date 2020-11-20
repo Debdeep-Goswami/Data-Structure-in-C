@@ -20,7 +20,7 @@ int Stack[MAX];
 
 /************************ Used Functions *****************/
 
-//--------------------- Necessory for Stack Operation -------
+//--------------------- Necessary for Stack Operation -------
 
 void push(int);
 
@@ -36,7 +36,7 @@ void display_stack();
 
 int menu();
 
-/********************************************************/
+/*************************************************************/
 
 //_________________________ Main Function ________________
 
@@ -47,6 +47,60 @@ int main()
 }
 
 // _______________________ END of Main Function __________
+
+
+/************************ Function definition *****************/
+
+void push(int data)
+{
+    if(Top==Stack_Size-1)
+        printf("\nOverflow");
+    else
+        Stack[++Top]=data;
+}
+
+int pop()
+{
+    int data=-999;
+    if(Top==-1)
+        printf("\nUnderflow");
+    else
+        data=Stack[Top--];
+    return data;
+}
+
+int showTop()
+{
+    if(Top==-1)
+        return -999;
+    else
+        return Stack[Top];
+}
+
+void display_stack()
+{
+    int i;
+    if(Top==-1)
+        printf("\nStack is Empty\n");
+    else
+        for(i=Top;i>=0;i--)
+            printf("\n|  %d  |",Stack[i]);
+}
+
+int menu()
+{
+    int choice;
+    printf("\nList of Choices\n");
+    printf("\n Push\t\t\t= 1\n");
+    printf("\n Pop\t\t\t= 2 \n");
+    printf("\n Show Top\t\t= 3\n");
+    printf("\n Display Stack\t\t= 4\n");
+    printf("\n Exit\t\t\t= 0\n");
+    printf("\nEnter your choice = ");
+    scanf("%d",&choice);
+    return choice;
+}
+
 
 void run()
 {
@@ -95,52 +149,4 @@ void run()
     return 0;
 }
 
-int menu()
-{
-    int choice;
-    printf("\nList of Choices\n");
-    printf("\n Push\t\t\t= 1\n");
-    printf("\n Pop\t\t\t= 2 \n");
-    printf("\n Show Top\t\t= 3\n");
-    printf("\n Display Stack\t\t= 4\n");
-    printf("\n Exit\t\t\t= 0\n");
-    printf("\nEnter your choice = ");
-    scanf("%d",&choice);
-    return choice;
-}
-
-void push(int data)
-{
-    if(Top==Stack_Size-1)
-        printf("\nOverflow");
-    else
-        Stack[++Top]=data;
-}
-
-int pop()
-{
-    int data=-999;
-    if(Top==-1)
-        printf("\nUnderflow");
-    else
-        data=Stack[Top--];
-    return data;
-}
-
-int showTop()
-{
-    if(Top==-1)
-        return -999;
-    else
-        return Stack[Top];
-}
-
-void display_stack()
-{
-    int i;
-    if(Top==-1)
-        printf("\nStack is Empty\n");
-    else
-        for(i=Top;i>=0;i--)
-            printf("\n|  %d  |",Stack[i]);
-}
+/************* End of function definition *******************/
